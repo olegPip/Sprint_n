@@ -8,19 +8,19 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from data.test_data import BASE_URL
+from pages.routes_page import RoutesPage
+
 class TaxiPage(BasePage):
     def open(self):
-        from data.test_data import BASE_URL
         self._driver.get(BASE_URL)
         return self
 
     def build_route(self):
-        from pages.routes_page import RoutesPage
         RoutesPage(self._driver).build_route(ORIGIN, DESTINATION)
         return self
 
     def open_taxi_order(self):
-        from pages.routes_page import RoutesPage
         RoutesPage(self._driver).open_taxi_order()
         self.find(TaxiLocators.TARIFF_CARDS)
         return self
