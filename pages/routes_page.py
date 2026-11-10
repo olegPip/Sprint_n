@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 
+from data.test_data import BASE_URL
 from locators.routes_locators import RoutesLocators
 from pages.base_page import BasePage
 
@@ -11,7 +12,7 @@ class RoutesPage(BasePage):
         super().__init__(driver)
 
     def open(self):
-        self._driver.get("https://qa-routes.education-services.ru/")
+        self._driver.get(BASE_URL)
         return self.find(RoutesLocators.FROM_INPUT)
 
     def set_address(self, locator, address):
