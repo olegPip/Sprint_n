@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from pages.routes_page import RoutesPage
 from pages.taxi_page import TaxiPage
 from pages.order_page import OrderPage
-
+from data.test_data import BASE_URL
 
 @pytest.fixture
 def driver():
@@ -15,7 +15,7 @@ def driver():
     browser = webdriver.Chrome(options=options)
 
     # ПЕРЕХОД НА САЙТ: Добавляем открытие целевой страницы
-    browser.get("https://qa-routes.education-services.ru/")
+    browser.get(BASE_URL)
 
     yield browser
     browser.quit()
